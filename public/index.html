@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>React😁</title>
+    <link rel="stylesheet" href="master.css" media="screen" title="no title" charset="utf-8">
+    <script src="https://npmcdn.com/react@15.3.1/dist/react.js"></script>
+    <script src="https://npmcdn.com/react-dom@15.3.1/dist/react-dom.js"></script>
+    <script src="https://npmcdn.com/babel-core@5.8.38/browser.min.js"></script>
+    <script src="https://npmcdn.com/jquery@3.1.0/dist/jquery.min.js"></script>
+    <script src="https://npmcdn.com/remarkable@1.6.2/dist/remarkable.min.js"></script>
+  </head>
+  <body>
+    <div id="first">
+
+    </div>
+    <script type="text/babel">
+    var CommentBox = React.createClass({
+       render: function() {
+         return (
+           <div className="commentBox">
+             <h1>Comments</h1>
+             <CommentList />
+             <CommentForm />
+           </div>
+         ); //end return
+       } // end function
+     }); // end commentBox
+
+      var CommentList = React.createClass({
+        render: function() {
+          return (
+            <div class="commentList">
+              <Comment author="Pete Hunt">This is one comment</Comment>
+              <Comment author="Jordan Walke">This is *another* comment</Comment>
+            </div>
+          ) // end return
+        } // end render
+      }); // end CommentList
+
+      var CommentForm = React.createClass({
+        render: function() {
+          return (
+            <div class="commentForm">
+              Hello world! Comment form here
+            </div>
+          ) // end return
+        } // end render
+      }); // end CommentForm
+
+      var Comment = React.createClass({
+        render: function() {
+          return (
+            <div className="comment">
+              <h2 className="commentAuthor">
+                {this.props.author}
+              </h2>
+              {this.props.children}
+            </div>
+          ) // end return
+        }// end function
+      }) //end comment
+
+      ReactDOM.render(<CommentBox />, document.getElementById('first'));
+    </script>
+  </body>
+</html>
